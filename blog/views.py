@@ -1,14 +1,14 @@
 from django.shortcuts import render, get_object_or_404
+from django.utils import timezone
 from .models import *
-from datetime import datetime    
 
 def home_view(request):
-    posts = Post.objects.filter(status=1, published_date__lte = datetime.now())
+    posts = Post.objects.filter(status=1, published_date__lte = timezone.now())
     context = {'posts': posts}
     return render(request, 'blog/blog-home.html', context)
 
 def single_view(request, pid):
-    post = get_object_or_404(Post, pk=pid, status=1)
+    post = get_object_or_404(Post, pk=pid, status=1, published_date__lte = timezone.now())
     post.counted_views += 1
     post.save()
     context = {'post':post}
