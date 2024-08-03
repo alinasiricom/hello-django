@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Post
+from .models import *
+
+class CategoryAdmin(admin.ModelAdmin):
+    pass
 
 class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'
@@ -11,5 +14,5 @@ class PostAdmin(admin.ModelAdmin):
 
 
 
-
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
