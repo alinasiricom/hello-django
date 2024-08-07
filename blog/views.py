@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import *
 
-def home_view(request):
+def home_view(request, cat=None):
     posts = Post.objects.filter(status=1, published_date__lte = timezone.now())
+    if cat: posts = posts.filter(category__name = cat)
     context = {'posts': posts}
     return render(request, 'blog/blog-home.html', context)
 

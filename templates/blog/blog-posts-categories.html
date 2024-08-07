@@ -3,7 +3,7 @@
     <ul class="cat-list">
         {% for k,v in pcats.items %}
         <li>
-            <a href="#" class="d-flex justify-content-between">
+            <a href="{% url 'blog:category' cat=k %}" class="d-flex justify-content-between">
                 <p>{{k}}</p>
                 <p>{{v}}</p>
             </a>
