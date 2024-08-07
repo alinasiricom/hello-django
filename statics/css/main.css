@@ -2934,6 +2934,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .recent-blog-area .single-recent-blog-post .thumb {
   overflow: hidden;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .recent-blog-area .single-recent-blog-post .thumb img {
