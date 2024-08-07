@@ -1,0 +1,14 @@
+<div class="single-sidebar-widget post-category-widget">
+    <h4 class="category-title">Post Catgories</h4>
+    <ul class="cat-list">
+        {% for k,v in pcats.items %}
+        <li>
+            <a href="#" class="d-flex justify-content-between">
+                <p>{{k}}</p>
+                <p>{{v}}</p>
+            </a>
+        </li>
+        {% endfor %}
+        
+    </ul>
+</div>
