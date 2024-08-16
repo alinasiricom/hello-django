@@ -3,6 +3,8 @@ from .models import *
 from .forms import *
 from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib import messages
+
 
 def index_view(request):
     return render(request, 'mainapp/index.html')
@@ -18,6 +20,9 @@ def contact_view(request):
         form = ContactForm2(request.POST)
         if form.is_valid():
             form.save()
+            messages.add_message(request, messages.SUCCESS, 'Ticket successfully')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error ticket')
     form = ContactForm2()
     context = {'form': form}
     return render(request, 'mainapp/contact.html', context)

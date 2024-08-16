@@ -58,8 +58,7 @@
 				</div>
 			</div>
 			<div class="col-lg-8">
-				<form class="form-area contact-form text-right" action="{% url 'mainapp:contact' %}"
-					method="post">
+				<form class="form-area contact-form text-right" action="{% url 'mainapp:contact' %}" method="post">
 					{% csrf_token %}
 					<div class="row">
 						<div class="col-lg-6 form-group">
@@ -88,6 +87,13 @@
 					</div>
 				</form>
 			</div>
+			{% if messages %}
+			<ul class="messages">
+				{% for message in messages %}
+				<li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
 		</div>
 	</div>
 </section>
