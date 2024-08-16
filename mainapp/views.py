@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import *
 from .forms import *
 from django.views.decorators.csrf import csrf_protect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 def index_view(request):
     return render(request, 'mainapp/index.html')
@@ -10,6 +10,7 @@ def index_view(request):
 
 def about_view(request):
     return render(request, 'mainapp/about.html')
+
 
 @csrf_protect
 def contact_view(request):
@@ -20,6 +21,15 @@ def contact_view(request):
     form = ContactForm2()
     context = {'form': form}
     return render(request, 'mainapp/contact.html', context)
+
+@csrf_protect
+def newsletter_view(request):
+    if request.method == 'POST':
+        form = NewsletterForm(request.POST)
+        if form.is_valid():
+            form.save()
+    return HttpResponseRedirect('/')
+
 
 @csrf_protect
 def test_view(request):
