@@ -19,7 +19,10 @@ def contact_view(request):
     if request.method == 'POST':
         form = ContactForm2(request.POST)
         if form.is_valid():
-            form.save()
+            temp_form = form.save(commit=False)
+            temp_form.name = 'unknown'
+            temp_form.save()
+            form.save_m2m()
             messages.add_message(request, messages.SUCCESS, 'Ticket successfully')
         else:
             messages.add_message(request, messages.ERROR, 'Error ticket')
