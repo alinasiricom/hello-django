@@ -6,6 +6,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 
 
+def maintenance_view(request):
+    return render(request, 'mainapp/maintenance.html')
+
+
 def index_view(request):
     return render(request, 'mainapp/index.html')
 
