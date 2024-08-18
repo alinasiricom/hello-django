@@ -36,6 +36,7 @@ def logout_view(request):
     return redirect('/')
 
 
+@csrf_protect
 def signup_view(request):
     if not request.user.is_authenticated:
         if request.method == 'POST':
@@ -46,5 +47,27 @@ def signup_view(request):
         form = UserCreationForm()
         context = {'form': form}
         return render(request, 'accounts/signup.html', context)
+    else:
+        return redirect('/')
+    
+
+@csrf_protect
+def forgetpass_view(request):
+    if not request.user.is_authenticated:
+        if request.method == 'POST':
+            email = request.POST['email']
+            username = request.POST["username"]
+            password1 = request.POST['password1']
+            password2 = request.POST["password2"]
+            try:
+                u = User.objects.get(username=username, email=email)
+                if password1 == password2:
+                    u.set_password(password1)
+                    u.save()
+                    return redirect('/')
+            except User.DoesNotExist:
+                print('User Does Not Exist')
+
+        return render(request, 'accounts/forgetpass.html')
     else:
         return redirect('/')
