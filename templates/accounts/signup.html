@@ -14,17 +14,17 @@
     <form style="max-width: 600px;" method="post" action="{% url 'accounts:signup' %}">
         {% csrf_token %}
         <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input name="email" type="email" class="form-control" placeholder="Enter Email" required>
+        </div>
+        <div class="form-group">
             <label for="exampleInputEmail1">Username</label>
             <input name="username" type="username" class="form-control" placeholder="Enter Username" required>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input name="password1" type="password" class="form-control"
-                placeholder="Enter Password" required>
-        </div>
-        <div class="form-group">
-            <input name="password2" type="password" class="form-control"
-                placeholder="Repeat Password" required>
+            <input name="password1" type="password" class="form-control" placeholder="Enter Password" required>
+            <input name="password2" type="password" class="form-control" placeholder="Repeat Password" required>
         </div>
 
         <!-- 2 column grid layout for inline styling -->
@@ -38,10 +38,13 @@
         </div>
 
         <!-- Submit button -->
-        <button type="submit" data-mdb-button-init data-mdb-ripple-init 
-        class="btn btn-primary btn-block mb-4">Signup</button>
+        <button type="submit" data-mdb-button-init data-mdb-ripple-init
+            class="btn btn-primary btn-block mb-4">Signup</button>
         </div>
     </form>
+    
+    {% include 'message1.html' %}
+
 </body>
 
 </html>
