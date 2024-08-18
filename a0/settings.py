@@ -109,4 +109,4 @@ MEDIA_URL = 'media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # MAINTENANCE_MODE = int(os.environ.get("MAINTENANCE_MODE", 0))
-MAINTENANCE_MODE = 1
+MAINTENANCE_MODE = 0
