@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'mainapp.apps.MainappConfig',
     'blog.apps.BlogConfig',
     'accounts.apps.AccountsConfig',
+
+    "compressor",
 ]
 
 MIDDLEWARE = [
@@ -101,6 +103,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+
+    'compressor.finders.CompressorFinder',
+)
 
 
 # Default primary key field type
