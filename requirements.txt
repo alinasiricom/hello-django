@@ -4,3 +4,5 @@ sqlparse
 tzdata
 pillow
 django_compressor
+cssmin
+jsmin

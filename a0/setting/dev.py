@@ -31,3 +31,14 @@ MEDIA_ROOT = BASE_DIR / 'media'
 STATICFILES_DIRS = [
     BASE_DIR / "statics",
 ]
+
+
+#django compressor
+COMPRESS_ENABLED = True
+COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_OFFLINE = True
+
+if not COMPRESS_ENABLED:
+    COMPRESS_ENABLED = True
+    COMPRESS_CSS_FILTERS = ["compressor.filters.cssmin.CSSMinFilter"]
+    COMPRESS_JS_FILTERS = ["compressor.filters.jsmin.JSMinFilter"]
