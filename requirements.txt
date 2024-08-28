@@ -7,3 +7,5 @@ django_compressor
 cssmin
 jsmin
 mysqlclient
+django-simple-captcha
+django-multi-captcha-admin
