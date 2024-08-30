@@ -7,7 +7,7 @@ DEBUG = True
 
 CSRF_COOKIE_SECURE = True
 
-ALLOWED_HOSTS = ['alinasiri.com', 'www.alinasiri.com']
+ALLOWED_HOSTS = ['p1.alinasiri.com', 'www.p1.alinasiri.com']
 
 
 # Database
@@ -25,8 +25,8 @@ DATABASES = {
 }
 
 
-STATIC_ROOT = BASE_DIR / 'static'
-MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_ROOT = '/home/alinasir/public_html_p1/static'
+MEDIA_ROOT = '/home/alinasir/public_html_p1/media'
 
 STATICFILES_DIRS = [
     BASE_DIR / "statics",
