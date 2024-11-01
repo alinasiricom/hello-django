@@ -1,6 +1,7 @@
-#custom files
+# Custom files
 password.txt
 *.zip
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
