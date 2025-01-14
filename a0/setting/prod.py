@@ -25,8 +25,8 @@ DATABASES = {
 }
 
 
-STATIC_ROOT = '/home/alinasir/public_html_p1/static'
-MEDIA_ROOT = '/home/alinasir/public_html_p1/media'
+STATIC_ROOT = '/home/alinasir/p1.alinasiri.com/static'
+MEDIA_ROOT = '/home/alinasir/p1.alinasiri.com/media'
 
 STATICFILES_DIRS = [
     BASE_DIR / "statics",
