@@ -1,3 +1,4 @@
+pip>24.3
 Django>4.2,<4.3
 asgiref
 sqlparse
